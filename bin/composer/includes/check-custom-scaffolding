@@ -1,0 +1,54 @@
+#!/bin/bash
+
+if [ ! -d "web" ]; then
+  mkdir web
+fi
+
+if [ ! -L "web/robots.txt" ]; then
+  if [ -f "web/robots.txt" ]; then
+    rm web/robots.txt
+  fi
+  echo "Creating symlink: ./web/robots.txt"
+  ln -s ../custom/robots.txt web/robots.txt
+fi
+
+if [ ! -d "web/modules" ]; then
+  mkdir web/modules
+fi
+
+if [ ! -d "web/profiles" ]; then
+  mkdir web/profiles
+fi
+
+if [ ! -d "web/sites" ]; then
+  mkdir web/sites
+fi
+if [ ! -d "web/sites/default" ]; then
+  mkdir web/sites/default
+fi
+chmod -R +rw web/sites/default
+if [ ! -L "web/sites/default/files" ]; then
+  if [ -d "web/sites/default/files" ]; then
+    mv web/sites/files/* files/default/public/
+    mv web/sites/files/.* files/default/public/
+    rm -rf web/sites/default/files
+  fi
+  echo "Creating symlink: ./web/sites/default/files"
+  ln -s ../../../files/default/public web/sites/default/files
+fi
+if [ -f "custom/sites/default/settings.local.php" ]; then
+  if [ ! -L "web/sites/default/settings.local.php" ]; then
+    if [ -f "web/sites/default/settings.local.php" ]; then
+      rm web/sites/default/settings.local.php
+    fi
+    echo "Creating symlink: ./web/sites/default/settings.local.php"
+    ln -s ../../../custom/sites/default/settings.local.php web/sites/default/settings.local.php
+  fi
+fi
+chmod -R -w web/sites/default
+chmod go-w custom/sites/default/services.yml
+chmod go-w custom/sites/default/settings.php
+
+if [ ! -d "web/themes" ]; then
+  mkdir web/themes
+fi

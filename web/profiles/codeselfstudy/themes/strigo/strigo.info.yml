@@ -1,0 +1,36 @@
+#
+#       .^~^.
+#      { 0,0 }
+#      /\.../\
+#     ///...\\\
+#   ----"---"----
+#      C O D E
+#      S E L F
+#     S T U D Y
+#
+name: Strigo
+description: Drupal 8 Gratis based sub-theme for CodeSelfStudy
+core: 8.x
+base theme: gratis
+engine: twig
+version: VERSION
+type: theme
+screenshot: screenshot.png
+regions:
+   footer_first: 'Footer first'
+   footer_second: 'Footer Second'
+   footer_third: 'Footer Third'
+   top_links: 'Top Links'
+   primary_menu: 'Primary menu'
+   thirdparty_menu: 'Third party menu'
+   preface_first: 'Preface first'
+   preface_second: 'Preface second'
+   preface_third: 'Preface third'
+   help: 'Help'
+   content_top: 'Content top'
+   sidebar_first: 'Sidebar First'
+   sidebar_second: 'Sidebar Second'
+   content: 'Content'
+   postscript_first: 'Postscript first'
+   postscript_second: 'Postscript second'
+   postscript_third: 'Postscript third'
